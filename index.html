@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b14">
+<meta name="description" content="Elite Bot Systems — powerful Discord server management, moderation, verification and automation.">
+<title>Elite Bot Systems | Official Website</title>
+<style>
+:root {
+  --bg:#080b14;
+  --panel:#101624;
+  --panel2:#151e30;
+  --blue:#4f8cff;
+  --purple:#9065ff;
+  --text:#f3f6ff;
+  --muted:#a2adc3;
+  --border:#263149;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.6;
+}
+a { color:inherit; text-decoration:none; }
+button,a { -webkit-tap-highlight-color:transparent; }
+header {
+  position:sticky; top:0; z-index:10;
+  background:rgba(8,11,20,.93);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.nav {
+  max-width:1120px; margin:auto; padding:16px 22px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:20px;
+}
+.brand { display:flex; align-items:center; gap:11px; font-weight:800; }
+.logo {
+  width:40px; height:40px; border-radius:12px;
+  display:grid; place-items:center;
+  background:linear-gradient(135deg,var(--blue),var(--purple));
+  box-shadow:0 0 25px #4f8cff33;
+  font-size:21px;
+}
+.brand small { display:block; color:var(--muted); font-size:11px; font-weight:500; }
+nav { display:flex; gap:23px; align-items:center; font-size:14px; }
+nav a:hover { color:#8eb4ff; }
+.menu { display:none; background:var(--panel2); color:white; border:1px solid var(--border); padding:9px 12px; border-radius:9px; }
+.hero {
+  max-width:1120px; margin:auto; padding:100px 22px 75px;
+  display:grid; grid-template-columns:1.2fr .8fr; gap:45px; align-items:center;
+}
+.eyebrow {
+  color:#a8c6ff; background:#172442; border:1px solid #2b426b;
+  border-radius:30px; display:inline-block; padding:7px 13px; font-size:12px;
+}
+h1 { font-size:clamp(40px,6vw,68px); line-height:1.08; letter-spacing:-2px; margin:22px 0; }
+.gradient { background:linear-gradient(90deg,#73a7ff,#b39aff); -webkit-background-clip:text; background-clip:text; color:transparent; }
+p { color:var(--muted); }
+.hero p { max-width:570px; font-size:17px; }
+.actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+.btn {
+  display:inline-flex; justify-content:center; align-items:center;
+  padding:12px 18px; border-radius:10px; font-weight:700; font-size:14px;
+  border:1px solid var(--border); cursor:pointer;
+}
+.primary { background:linear-gradient(110deg,#3979ed,#7957e8); border:0; color:white; }
+.secondary { background:var(--panel); }
+.btn:hover { transform:translateY(-2px); }
+.preview {
+  padding:25px; border:1px solid #2c3b58; border-radius:22px;
+  background:radial-gradient(ellipse at top right,#243d6c55,transparent 65%),var(--panel);
+  box-shadow:0 25px 80px #0005;
+}
+.preview-top { display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); padding-bottom:17px; }
+.status { color:#79e2b0; font-size:12px; }
+.stat { padding:15px; border:1px solid var(--border); border-radius:12px; background:#0b101c; margin-top:13px; }
+.stat strong { display:block; font-size:20px; }
+.stat span { color:var(--muted); font-size:12px; }
+.mini-bar { height:6px; border-radius:8px; margin-top:12px; background:linear-gradient(90deg,var(--blue) 72%,#293249 72%); }
+section { max-width:1120px; margin:auto; padding:65px 22px; }
+.section-heading { max-width:650px; margin-bottom:30px; }
+h2 { font-size:clamp(27px,4vw,39px); letter-spacing:-1px; margin:0 0 10px; }
+.grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.card { background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:23px; }
+.card:hover { border-color:#526c9d; }
+.card-icon {
+  width:43px; height:43px; display:grid; place-items:center;
+  background:#1a2945; border-radius:12px; font-size:21px; margin-bottom:17px;
+}
+.card h3 { margin:0 0 8px; font-size:18px; }
+.card p { font-size:14px; margin-bottom:0; }
+.pill { display:inline-block; border:1px solid var(--border); color:#c3d4f7; border-radius:20px; padding:4px 9px; font-size:11px; }
+.command-list { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+.command {
+  display:flex; justify-content:space-between; align-items:center; gap:12px;
+  background:var(--panel); border:1px solid var(--border);
+  border-radius:12px; padding:15px;
+}
+.command code { color:#a9c8ff; font-size:14px; }
+.command span { color:var(--muted); font-size:12px; text-align:right; }
+.cta {
+  background:radial-gradient(ellipse at top right,#354b8555,transparent 60%),var(--panel);
+  border:1px solid var(--border); border-radius:20px; padding:38px;
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+}
+footer { border-top:1px solid var(--border); margin-top:50px; }
+.footer-inner { max-width:1120px; margin:auto; padding:25px 22px; display:flex; justify-content:space-between; gap:15px; flex-wrap:wrap; color:var(--muted); font-size:12px; }
+footer a { color:#a9c8ff; }
+#notice { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#1b2740; border:1px solid #405780; padding:12px 17px; border-radius:10px; display:none; z-index:20; max-width:90%; font-size:13px; }
+@media(max-width:760px) {
+  .hero { grid-template-columns:1fr; padding-top:65px; }
+  .grid { grid-template-columns:1fr; }
+  .command-list { grid-template-columns:1fr; }
+  .cta { align-items:flex-start; flex-direction:column; padding:25px; }
+  nav { display:none; position:absolute; left:0; right:0; top:72px; background:var(--bg); border-bottom:1px solid var(--border); padding:20px; flex-direction:column; align-items:flex-start; }
+  nav.open { display:flex; }
+  .menu { display:block; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="brand" href="#home">
+      <span class="logo">E</span>
+      <span>ELITE BOT SYSTEMS<small>DISCORD MANAGEMENT PLATFORM</small></span>
+    </a>
+    <button class="menu" id="menuBtn">Menu ☰</button>
+    <nav id="navLinks">
+      <a href="#features">Features</a>
+      <a href="#systems">Systems</a>
+      <a href="#commands">Commands</a>
+      <a href="#support">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div>
+      <span class="eyebrow">◆ BUILT FOR BETTER DISCORD SERVERS</span>
+      <h1>Take control with<br><span class="gradient">Elite Bot Systems.</span></h1>
+      <p>One powerful Discord bot for server management, moderation, verification, support tickets and automation. Built to help your staff team work smarter.</p>
+      <div class="actions">
+        <a class="btn primary" href="#systems">Explore Systems ↗</a>
+        <a class="btn secondary" href="#support">Get Support</a>
+      </div>
+    </div>
+    <div class="preview">
+      <div class="preview-top">
+        <div><strong>Elite Command Center</strong><br><span style="color:var(--muted);font-size:12px">System overview</span></div>
+        <span class="status">● Website Preview</span>
+      </div>
+      <div class="stat"><span>PLATFORM</span><strong>Elite Bot Systems</strong><span>Discord server tools</span><div class="mini-bar"></div></div>
+      <div class="stat"><span>MODERATION</span><strong>Tools for your staff</strong><span>Warnings · Reports · Staff controls</span></div>
+      <div class="stat"><span>SERVER MANAGEMENT</span><strong>Built for communities</strong><span>Tickets · Verification · Automation</span></div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="section-heading">
+      <h2>Everything your server needs.</h2>
+      <p>Keep your community organized with tools designed for owners, administrators and staff teams.</p>
+    </div>
+    <div class="grid">
+      <article class="card"><div class="card-icon">🛡️</div><h3>Moderation</h3><p>Organize warnings, moderation actions, reports and staff accountability tools.</p></article>
+      <article class="card"><div class="card-icon">🎫</div><h3>Support Tickets</h3><p>Give members a clear way to contact your team and request help privately.</p></article>
+      <article class="card"><div class="card-icon">🔐</div><h3>Verification</h3><p>Help communities manage member verification and access roles.</p></article>
+      <article class="card"><div class="card-icon">⚙️</div><h3>Automation</h3><p>Reduce repetitive staff work with organized server tools and workflows.</p></article>
+      <article class="card"><div class="card-icon">📋</div><h3>Staff Center</h3><p>Bring staff tools together in a central command center.</p></article>
+      <article class="card"><div class="card-icon">📊</div><h3>Server Insights</h3><p>Build a clearer picture of moderation activity and server operations.</p></article>
+    </div>
+  </section>
+
+  <section id="systems">
+    <div class="section-heading">
+      <h2>Systems that work together.</h2>
+      <p>Explore the main parts of the Elite Bot Systems platform.</p>
+    </div>
+    <div class="grid">
+      <article class="card"><span class="pill">STAFF</span><h3 style="margin-top:15px">Elite Command Center</h3><p>A central place for authorized staff to access management tools.</p></article>
+      <article class="card"><span class="pill">COMMUNITY</span><h3 style="margin-top:15px">Member Experience</h3><p>Welcome messages, rules, FAQs and member support workflows.</p></article>
+      <article class="card"><span class="pill">SECURITY</span><h3 style="margin-top:15px">Server Protection</h3><p>Moderation and security tools to help staff manage their community.</p></article>
+    </div>
+  </section>
+
+  <section id="commands">
+    <div class="section-heading">
+      <h2>Command examples.</h2>
+      <p>These are illustrative examples for the website. Check your installed bot for the exact commands it currently supports.</p>
+    </div>
+    <div class="command-list">
+      <div class="command"><code>/staffpanel</code><span>Staff command center</span></div>
+      <div class="command"><code>/ticketsetup</code><span>Ticket configuration</span></div>
+      <div class="command"><code>/verification-setup</code><span>Verification setup</span></div>
+      <div class="command"><code>/bank</code><span>Banking interface</span></div>
+      <div class="command"><code>$botinfo</code><span>Bot information</span></div>
+      <div class="command"><code>/ping</code><span>Connection check</span></div>
+    </div>
+  </section>
+
+  <section id="support">
+    <div class="cta">
+      <div><h2>Need help with your server?</h2><p>Connect your official support server and bot invite to make it easy for users to get started.</p></div>
+      <div class="actions" style="margin-top:0">
+        <button class="btn primary" data-placeholder="Discord invite">Invite the Bot ↗</button>
+        <button class="btn secondary" data-placeholder="Support server">Join Support</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© <span id="year"></span> Elite Bot Systems. All rights reserved.</span>
+    <span>Built for Discord communities · <a href="#home">Back to top ↑</a></span>
+  </div>
+</footer>
+<div id="notice" role="status"></div>
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.getElementById("navLinks");
+menuBtn.addEventListener("click", () => nav.classList.toggle("open"));
+nav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => nav.classList.remove("open")));
+let noticeTimer;
+document.querySelectorAll("[data-placeholder]").forEach(button => {
+  button.addEventListener("click", () => {
+    const notice = document.getElementById("notice");
+    notice.textContent = "Add your official " + button.dataset.placeholder + " link to activate this button.";
+    notice.style.display = "block";
+    clearTimeout(noticeTimer);
+    noticeTimer = setTimeout(() => notice.style.display = "none", 3500);
+  });
+});
+</script>
+</body>
+</html>
